@@ -12,7 +12,7 @@ const WEB3FORMS_KEY = "93dc77b7-baf0-4eda-b13f-875253db9747"; // Web3Forms key â
 
 const OWNER_INFO = {
   name: "Indra Kumar M",
-  role: "Aspiring AI Software Developer & Product Manager",
+  role: "Aspiring AI Software Developer",
   email: "indrakumar.m2005@gmail.com",
   phone: "+91 9095334806",
   linkedin: "https://www.linkedin.com/in/indra-kumar-65989a367/",
@@ -223,7 +223,6 @@ const titles = [
   'Product Manager',
   'Backend Engineer',
   'Open Source Contributor',
-  'Community Organizer',
   'Java Developer'
 ];
 
