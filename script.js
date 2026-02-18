@@ -516,7 +516,7 @@ async function getBotResponse(userMessage) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         message: userMessage,
-        history: chatState.history
+        history: chatState.history.slice(0, -1) // Exclude current message since it's sent in 'message'
       })
     });
 
