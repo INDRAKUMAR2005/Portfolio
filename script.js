@@ -3,8 +3,8 @@
 =========================== */
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-// ⚠️ Add your OpenAI API key here (keep this private, do not commit to public repos)
-const OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE"; // Replace with your key locally
+// ⚠️ OpenAI Key is now handled securely in the backend (api/chat.js)
+// No need to expose it here in the frontend code.
 
 // Web3Forms — free email service, sends directly to your Gmail, no backend needed
 // Access key is tied to: indrakumar.m2005@gmail.com
@@ -325,39 +325,24 @@ contactForm.addEventListener('submit', async (e) => {
   formError.style.display = 'none';
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: `You are a professional assistant for ${OWNER_INFO.name}, an aspiring software developer. 
-            Someone has sent a contact message through his portfolio. 
-            Write a warm, professional, and personalized acknowledgment response (2-3 sentences) 
-            confirming their message was received and that ${OWNER_INFO.name} will get back to them soon. 
-            Be friendly, professional, and mention their name.`
-          },
-          {
-            role: 'user',
-            content: `Contact from: ${name} (${email}${phone ? ', ' + phone : ''})
+    const userMessageContent = `Contact from: ${name} (${email}${phone ? ', ' + phone : ''})
 Subject: ${subject}
-Message: ${message}`
-          }
-        ],
-        max_tokens: 150,
-        temperature: 0.7
+Message: ${message}`;
+
+    // Call Vercel Serverless Function (api/chat.js) for AI response
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: userMessageContent,
+        history: [] // No history for contact form, just one-off generation
       })
     });
 
     if (!response.ok) throw new Error('API error');
 
     const data = await response.json();
-    const aiReply = data.choices[0].message.content.trim();
+    const aiReply = data.reply;
 
     // ✅ Send email notification to Indra's Gmail
     await sendEmailNotification({
@@ -406,25 +391,7 @@ const chatbotMinimize = document.getElementById('chatbot-minimize');
 let chatState = {
   step: 'name', // name → email → phone → purpose → done
   userData: {},
-  history: [
-    {
-      role: 'system',
-      content: `You are a friendly AI assistant on ${OWNER_INFO.name}'s portfolio website. 
-      Your job is to collect visitor contact details (name, email, phone, purpose) to help ${OWNER_INFO.name} follow up.
-      You also answer questions about ${OWNER_INFO.name}'s skills, projects, and experience.
-      
-      About ${OWNER_INFO.name}:
-      - Role: ${OWNER_INFO.role}
-      - Skills: ${OWNER_INFO.skills}
-      - Experience: ${OWNER_INFO.experience}
-      - Projects: ${OWNER_INFO.projects}
-      - Email: ${OWNER_INFO.email}
-      - Phone: ${OWNER_INFO.phone}
-      - LinkedIn: ${OWNER_INFO.linkedin}
-      
-      Be warm, professional, and concise. Keep responses under 3 sentences.`
-    }
-  ]
+  history: [] // System prompt is now handled in backend (api/chat.js)
 };
 
 chatbotToggle.addEventListener('click', () => {
@@ -543,24 +510,20 @@ async function getBotResponse(userMessage) {
   try {
     chatState.history.push({ role: 'user', content: userMessage });
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    // Call Vercel Serverless Function (api/chat.js)
+    const response = await fetch('/api/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: chatState.history,
-        max_tokens: 200,
-        temperature: 0.7
+        message: userMessage,
+        history: chatState.history
       })
     });
 
     if (!response.ok) throw new Error('API error');
 
     const data = await response.json();
-    const reply = data.choices[0].message.content.trim();
+    const reply = data.reply;
     chatState.history.push({ role: 'assistant', content: reply });
     return reply;
   } catch (err) {
