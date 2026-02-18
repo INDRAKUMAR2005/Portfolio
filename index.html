@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indra Kumar M | AI Software Developer & Product Manager</title>
+    <meta name="description"
+        content="Portfolio of Indra Kumar M – Aspiring AI Software Developer & Product Manager passionate about building intelligent products, scalable backends, and open-source innovation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Space + Glassmorphism Background -->
+    <canvas id="particles-canvas" style="display:none"></canvas>
+    <canvas id="stars-canvas"></canvas>
+    <div class="blob-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-bracket">&lt;</span>IK<span class="logo-bracket">/&gt;</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting">
+                    <span class="greeting-line"></span>
+                    <span>Hello, World! 👋</span>
+                </div>
+                <h1 class="hero-name">
+                    <span class="name-first">Indra Kumar</span>
+                    <span class="name-last"> M</span>
+                </h1>
+                <div class="hero-title-wrapper">
+                    <span class="hero-title-static">I'm an </span>
+                    <span class="hero-title-dynamic" id="dynamic-title"></span>
+                </div>
+                <p class="hero-description">
+                    Aspiring <strong>AI Software Developer</strong> & <strong>Product Manager</strong> —
+                    turning ideas into impactful digital products through strategic thinking,
+                    intelligent systems, and developer-first experiences.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://drive.google.com/file/d/1WHGIITmDNjI7-MozYK7fpRancWSXQfO7/view?usp=drive_link"
+                        target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i> Let's Connect
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://www.linkedin.com/in/indra-kumar-65989a367/" target="_blank" class="social-icon"
+                        title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:indrakumar.m2005@gmail.com" class="social-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:9095334806" class="social-icon" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://github.com/INDRAKUMAR2005" target="_blank" class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image-ring ring-1"></div>
+                <div class="hero-image-ring ring-2"></div>
+                <div class="hero-image-ring ring-3"></div>
+                <div class="hero-image-container">
+                    <img src="profile.jpg" alt="Indra Kumar M" class="hero-photo" />
+                </div>
+                <div class="floating-badge badge-1">
+                    <i class="fas fa-code"></i>
+                    <span>Full Stack</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Tools</span>
+                </div>
+                <div class="floating-badge badge-3">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who I Am</span>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="about-icon"><i class="fas fa-chess-king"></i></div>
+                    <h3>Product Management</h3>
+                    <p>I approach software through a product lens — defining user needs, prioritizing features, and
+                        aligning technical execution with business goals. I believe the best products are built at the
+                        intersection of empathy, data, and engineering precision.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Developer &amp; Open Source</h3>
+                    <p>I build scalable, AI-integrated applications using modern stacks — from Java backends to React
+                        frontends. I actively contribute to the open-source ecosystem, writing clean, maintainable code
+                        that empowers the global developer community.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="about-icon"><i class="fas fa-users"></i></div>
+                    <h3>Community Organizer</h3>
+                    <p>As a lead organizer of Nandha Hackathons &amp; Symposia, I've united 1000+ students under one
+                        roof to collaborate, innovate, and compete. I believe in building communities that inspire the
+                        next generation of tech leaders.</p>
+                </div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-label">Projects Built</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-label">Internships</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1000">0</span>
+                    <span class="stat-label">Students Reached</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Years Organizing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & <span class="gradient-text">Activities</span></h2>
+            </div>
+            <div class="timeline">
+
+                <!-- Experience 1 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Software Development Engineer Intern</h3>
+                                <span class="timeline-company"><i class="fas fa-building"></i> SIX PHRASE PVT LTD,
+                                    Coimbatore</span>
+                            </div>
+                            <span class="timeline-date">July 2025 – Aug 2025</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Executed Java-based backend development tasks, writing clean, maintainable, and
+                                efficient code aligned with industry best practices.</li>
+                            <li>Worked with Spring Boot framework to build RESTful APIs while understanding real-world
+                                backend architecture and deployment workflows.</li>
+                            <li>Collaborated with senior engineers on database design and optimization, improving query
+                                performance by implementing efficient data access patterns.</li>
+                            <li>Participated in Agile sprint cycles, contributing to daily standups, code reviews, and
+                                iterative feature delivery under tight deadlines.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Software Development Intern</h3>
+                                <span class="timeline-company"><i class="fas fa-building"></i> COGNIFYZ
+                                    TECHNOLOGIES</span>
+                            </div>
+                            <span class="timeline-date">June 2025 – July 2025</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Developed and maintained Java-based applications, implementing core business logic with
+                                a focus on Object-Oriented Programming principles and design patterns.</li>
+                            <li>Built and integrated backend modules using Java, contributing to the development of
+                                scalable microservice components and internal tooling.</li>
+                            <li>Wrote unit tests and performed debugging to ensure code reliability, reducing bug rates
+                                and improving overall application stability.</li>
+                            <li>Gained hands-on experience with database operations (CRUD), version control using Git,
+                                and collaborative development in a professional team environment.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">OOPs</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">Unit Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Organizer</h3>
+                                <span class="timeline-company"><i class="fas fa-university"></i> Nandha Hackathons &
+                                    Symposia</span>
+                            </div>
+                            <span class="timeline-date">2023 – Present</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Coordinated event logistics, team registrations, and mentor sessions to ensure smooth
+                                execution of large-scale technical events.</li>
+                            <li>Played a key role in promoting innovation and collaboration among 1000+ students across
+                                multiple hackathons and symposia.</li>
+                            <li>Managed cross-functional teams of volunteers, delegating responsibilities and ensuring
+                                timely delivery of all event milestones.</li>
+                            <li>Established partnerships with industry mentors and sponsors, enhancing the quality and
+                                reach of technical events on campus.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Event Management</span>
+                            <span class="tag">Team Coordination</span>
+                            <span class="tag">1000+ Students</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What I've Built</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+            </div>
+            <div class="projects-grid">
+
+                <!-- Project 1: RepoLens -->
+                <div class="project-card glass-card featured">
+                    <div class="project-image">
+                        <div class="project-img-placeholder repolens-bg">
+                            <div class="project-icon-large"><i class="fas fa-project-diagram"></i></div>
+                            <div class="project-tech-icons">
+                                <span><i class="fab fa-react"></i></span>
+                                <span><i class="fab fa-node-js"></i></span>
+                                <span><i class="fas fa-robot"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://repolens-9hr0.onrender.com/" target="_blank" class="overlay-btn"><i
+                                    class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-badge featured-badge">⭐ Featured</span>
+                            <span class="project-badge ai-badge">AI-Powered</span>
+                        </div>
+                        <h3 class="project-title">RepoLens</h3>
+                        <p class="project-subtitle">Visualize Your Repository Architecture</p>
+                        <p class="project-desc">An AI-driven tool that helps developers instantly understand complex
+                            codebases by generating interactive architecture diagrams from GitHub & GitLab repositories.
+                        </p>
+                        <ul class="project-highlights">
+                            <li><i class="fas fa-check-circle"></i> Multi-provider support for GitHub & GitLab with
+                                interactive node-based architecture diagrams</li>
+                            <li><i class="fas fa-check-circle"></i> AI-powered tech stack detection, API endpoint
+                                mapping, and database schema identification</li>
+                            <li><i class="fas fa-check-circle"></i> Export architecture diagrams as SVG, PNG, or PDF
+                                with one-click source code ZIP download</li>
+                            <li><i class="fas fa-check-circle"></i> Premium glassmorphism UI with dark mode, built on
+                                React, Express, and Google Gemini 2.5 Flash</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span class="stack-tag">React</span>
+                            <span class="stack-tag">Express</span>
+                            <span class="stack-tag">Gemini AI</span>
+                            <span class="stack-tag">React Flow</span>
+                            <span class="stack-tag">Supabase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://repolens-9hr0.onrender.com/" target="_blank"
+                                class="project-link-btn primary-link">
+                                <i class="fas fa-rocket"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SmartBookmark -->
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-img-placeholder bookmark-bg">
+                            <div class="project-icon-large"><i class="fas fa-bookmark"></i></div>
+                            <div class="project-tech-icons">
+                                <span><i class="fab fa-react"></i></span>
+                                <span><i class="fas fa-database"></i></span>
+                                <span><i class="fas fa-shield-alt"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://smart-bookmark-chi.vercel.app/" target="_blank" class="overlay-btn"><i
+                                    class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-badge">Realtime</span>
+                            <span class="project-badge">Full Stack</span>
+                        </div>
+                        <h3 class="project-title">SmartBookmark App</h3>
+                        <p class="project-subtitle">Modern Realtime Bookmark Manager</p>
+                        <p class="project-desc">A creative, modern, and realtime bookmark manager built with Next.js 16,
+                            Supabase, and Tailwind CSS v4 featuring Google OAuth and live sync.</p>
+                        <ul class="project-highlights">
+                            <li><i class="fas fa-check-circle"></i> Google OAuth authentication via Supabase with Row
+                                Level Security for private, secure data access</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time bookmark sync across all devices and tabs
+                                without page refresh using Supabase Realtime</li>
+                            <li><i class="fas fa-check-circle"></i> Glassmorphism UI with smooth Framer Motion
+                                animations and fully responsive mobile-first design</li>
+                            <li><i class="fas fa-check-circle"></i> Built entirely without AI assistance — pure
+                                developer craftsmanship with Next.js App Router architecture</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span class="stack-tag">Next.js 16</span>
+                            <span class="stack-tag">Supabase</span>
+                            <span class="stack-tag">Tailwind v4</span>
+                            <span class="stack-tag">Framer Motion</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://smart-bookmark-chi.vercel.app/" target="_blank"
+                                class="project-link-btn primary-link">
+                                <i class="fas fa-rocket"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Money Manager -->
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-img-placeholder money-bg">
+                            <div class="project-icon-large"><i class="fas fa-wallet"></i></div>
+                            <div class="project-tech-icons">
+                                <span><i class="fab fa-react"></i></span>
+                                <span><i class="fab fa-node-js"></i></span>
+                                <span><i class="fas fa-leaf"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://money-manager-indrakumar.vercel.app/" target="_blank"
+                                class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-badge">Full Stack</span>
+                            <span class="project-badge">MongoDB</span>
+                        </div>
+                        <h3 class="project-title">Money Manager</h3>
+                        <p class="project-subtitle">Full Stack Financial Tracker</p>
+                        <p class="project-desc">A full-stack personal finance management application with React frontend
+                            and Node.js/Express backend, connected to MongoDB Atlas for persistent data storage.</p>
+                        <ul class="project-highlights">
+                            <li><i class="fas fa-check-circle"></i> Complete CRUD operations for income and expense
+                                tracking with category-wise transaction management</li>
+                            <li><i class="fas fa-check-circle"></i> RESTful API backend with Node.js/Express, MongoDB
+                                Atlas integration, and CORS-enabled endpoints</li>
+                            <li><i class="fas fa-check-circle"></i> Responsive React frontend built with Vite and
+                                TailwindCSS, deployed on Vercel for fast global delivery</li>
+                            <li><i class="fas fa-check-circle"></i> Handcrafted without AI tools — demonstrates strong
+                                fundamentals in full-stack JavaScript development</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span class="stack-tag">React</span>
+                            <span class="stack-tag">Node.js</span>
+                            <span class="stack-tag">Express</span>
+                            <span class="stack-tag">MongoDB</span>
+                            <span class="stack-tag">Vite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://money-manager-indrakumar.vercel.app/" target="_blank"
+                                class="project-link-btn primary-link">
+                                <i class="fas fa-rocket"></i> Frontend
+                            </a>
+                            <a href="https://money-manager-backend-woad.vercel.app/" target="_blank"
+                                class="project-link-btn secondary-link">
+                                <i class="fas fa-server"></i> API
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: AI Feedback System -->
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-img-placeholder ai-bg">
+                            <div class="project-icon-large"><i class="fas fa-comments"></i></div>
+                            <div class="project-tech-icons">
+                                <span><i class="fas fa-robot"></i></span>
+                                <span><i class="fab fa-node-js"></i></span>
+                                <span><i class="fas fa-chart-bar"></i></span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://task2-fynd-ai-assessement.vercel.app" target="_blank"
+                                class="overlay-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-badge ai-badge">AI-Powered</span>
+                            <span class="project-badge">Dual Dashboard</span>
+                        </div>
+                        <h3 class="project-title">AI Feedback System</h3>
+                        <p class="project-subtitle">Production-Style Dual Dashboard Web App</p>
+                        <p class="project-desc">A production-grade web application with two fully deployed dashboards —
+                            a public user feedback portal and an internal admin panel, both powered by LLM-driven AI
+                            responses.</p>
+                        <ul class="project-highlights">
+                            <li><i class="fas fa-check-circle"></i> User dashboard with star rating, review submission,
+                                and instant AI-generated personalized responses</li>
+                            <li><i class="fas fa-check-circle"></i> Admin dashboard with live-updating submissions list,
+                                AI summaries, and recommended action insights</li>
+                            <li><i class="fas fa-check-circle"></i> All LLM calls are server-side with explicit JSON
+                                schemas, graceful error handling, and persistent storage</li>
+                            <li><i class="fas fa-check-circle"></i> Deployed on Vercel with shared data source, handling
+                                edge cases like empty reviews and API failures</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span class="stack-tag">React</span>
+                            <span class="stack-tag">Node.js</span>
+                            <span class="stack-tag">Gemini AI</span>
+                            <span class="stack-tag">MongoDB</span>
+                            <span class="stack-tag">Vercel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://task2-fynd-ai-assessement.vercel.app" target="_blank"
+                                class="project-link-btn primary-link">
+                                <i class="fas fa-user"></i> User Dashboard
+                            </a>
+                            <a href="https://task2-fynd-ai-assessement.vercel.app/admin" target="_blank"
+                                class="project-link-btn secondary-link">
+                                <i class="fas fa-cog"></i> Admin Panel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Arsenal</span>
+                <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+            </div>
+            <div class="skills-grid">
+
+                <div class="skill-category glass-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+                        <h3>Technical Skills</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Thymeleaf</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Supabase</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">Render</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Drizzle ORM</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Concepts & Practices</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Structures & Algorithms</span>
+                        <span class="skill-tag">Low-Level Design</span>
+                        <span class="skill-tag">OOPs</span>
+                        <span class="skill-tag">Computer Networks</span>
+                        <span class="skill-tag">Operating Systems</span>
+                        <span class="skill-tag">CRUD Operations</span>
+                        <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">MVC Architecture</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">API Design</span>
+                        <span class="skill-tag">Version Control</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-robot"></i></div>
+                        <h3>AI Tools</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag ai-skill">Cursor</span>
+                        <span class="skill-tag ai-skill">Antigravity</span>
+                        <span class="skill-tag ai-skill">Gamma</span>
+                        <span class="skill-tag ai-skill">GitHub Copilot</span>
+                        <span class="skill-tag ai-skill">Google Gemini</span>
+                        <span class="skill-tag ai-skill">Claude</span>
+                        <span class="skill-tag ai-skill">ChatGPT</span>
+                        <span class="skill-tag ai-skill">Perplexity AI</span>
+                        <span class="skill-tag ai-skill">v0.dev</span>
+                        <span class="skill-tag ai-skill">Bolt.new</span>
+                        <span class="skill-tag ai-skill">Lovable</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-users"></i></div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag soft-skill">Clear Communication</span>
+                        <span class="skill-tag soft-skill">Analytical Thinking</span>
+                        <span class="skill-tag soft-skill">Problem Solving</span>
+                        <span class="skill-tag soft-skill">Attention to Detail</span>
+                        <span class="skill-tag soft-skill">Time Management</span>
+                        <span class="skill-tag soft-skill">Team Collaboration</span>
+                        <span class="skill-tag soft-skill">Adaptability</span>
+                        <span class="skill-tag soft-skill">Leadership</span>
+                        <span class="skill-tag soft-skill">Project Management</span>
+                        <span class="skill-tag soft-skill">Critical Thinking</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+                <p class="section-subtitle">I'm actively seeking opportunities and open to collaboration. Whether you
+                    have a project idea, an internship offer, or just want to say hi — my inbox is always open!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info glass-card">
+                    <h3>Contact Information</h3>
+                    <div class="contact-items">
+                        <a href="mailto:indrakumar.m2005@gmail.com" class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-item-text">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">indrakumar.m2005@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:9095334806" class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-item-text">
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+91 9095334806</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/indra-kumar-65989a367/" target="_blank"
+                            class="contact-item">
+                            <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="contact-item-text">
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">indra-kumar-65989a367</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="open-source-note">
+                        <i class="fas fa-code-branch"></i>
+                        <p>I'm passionate about <strong>open-source contribution</strong> and believe in the power of
+                            collaborative development. Let's build something meaningful together for the global
+                            developer community.</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1WHGIITmDNjI7-MozYK7fpRancWSXQfO7/view?usp=drive_link"
+                        target="_blank" class="btn btn-primary resume-btn">
+                        <i class="fas fa-download"></i> Download My Resume
+                    </a>
+                </div>
+
+                <div class="contact-form-wrapper glass-card">
+                    <h3>Send Me a Message</h3>
+                    <p class="form-subtitle">Fill in your details and I'll get back to you shortly.</p>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Your full name"
+                                    required />
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address *</label>
+                                <input type="email" id="contact-email" name="email" placeholder="your@email.com"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="phone" placeholder="+91 XXXXX XXXXX" />
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject *</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="What's this about?"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" rows="4"
+                                placeholder="Tell me about your project, opportunity, or just say hello..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i>
+                                Sending...</span>
+                        </button>
+                        <div id="form-success" class="form-success" style="display:none;">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Message received!</strong>
+                                <p id="ai-response-text">Thank you for reaching out. I'll get back to you soon!</p>
+                            </div>
+                        </div>
+                        <div id="form-error" class="form-error" style="display:none;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Something went wrong. Please try again or email me directly.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>IK<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-tagline">AI Software Developer · Product Manager · Open Source Contributor · Community
+                    Organizer</p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/indra-kumar-65989a367/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:indrakumar.m2005@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:9095334806"><i class="fas fa-phone"></i></a>
+                    <a href="https://github.com/INDRAKUMAR2005" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <p class="footer-copy">© 2026 Indra Kumar M &nbsp;·&nbsp; <i class="fas fa-code"
+                        style="color:#6c63ff;"></i> &nbsp;Built with precision &amp; purpose.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-wrapper" id="chatbot-wrapper">
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat">
+            <i class="fas fa-comments" id="chat-icon"></i>
+            <i class="fas fa-times" id="chat-close-icon" style="display:none;"></i>
+            <span class="chat-notification" id="chat-notification">1</span>
+        </button>
+        <div class="chatbot-container" id="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="chatbot-info">
+                    <h4>Indra's Assistant</h4>
+                    <span class="chatbot-status"><span class="status-dot"></span> Online</span>
+                </div>
+                <button class="chatbot-minimize" id="chatbot-minimize"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-message bot-message">
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="message-bubble">
+                        <p>👋 Hi there! I'm Indra's AI assistant. I'd love to help you connect with him!</p>
+                        <p style="margin-top:8px;">Could you start by sharing your <strong>name</strong>?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="Type your message..." />
+                <button id="chatbot-send" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
