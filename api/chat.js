@@ -96,11 +96,12 @@ export default async function handler(req) {
 
     try {
         const { message, history } = await req.json();
-        const apiKey = process.env.OPENAI_API_KEY;
+        // Use Gemini API Key from environment variables
+        const apiKey = process.env.GEMINI_API_KEY;
 
         if (!apiKey) {
-            console.error('Missing OPENAI_API_KEY');
-            return new Response(JSON.stringify({ error: 'OpenAI API key not configured' }), {
+            console.error('Missing GEMINI_API_KEY');
+            return new Response(JSON.stringify({ error: 'Gemini API key not configured' }), {
                 status: 500,
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -125,36 +126,45 @@ export default async function handler(req) {
     Guidelines:
     - Be professional, friendly, and helpful.
     - Focus on specific skills and projects when asked.
-    - If you don't know something, suggest emailing Indra.
+    - Use the provided data to answer. If you don't know something, suggest emailing Indra.
     - Keep responses concise (2-4 sentences).`;
 
-        const messages = [
-            { role: 'system', content: systemPrompt },
-            ...(history || []),
-            { role: 'user', content: message }
-        ];
+        // Format history for Gemini (roles: user, model)
+        const geminiHistory = (history || []).map(msg => ({
+            role: msg.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: msg.content }]
+        }));
 
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-                model: 'gpt-4o-mini',
-                messages: messages,
-                max_tokens: 300,
-                temperature: 0.7,
+                system_instruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                contents: [
+                    ...geminiHistory,
+                    {
+                        role: 'user',
+                        parts: [{ text: message }]
+                    }
+                ],
+                generationConfig: {
+                    maxOutputTokens: 500,
+                    temperature: 0.7,
+                }
             }),
         });
 
         if (!response.ok) {
             const errData = await response.json();
-            throw new Error(errData.error?.message || 'OpenAI API Error');
+            throw new Error(errData.error?.message || 'Gemini API Error');
         }
 
         const data = await response.json();
-        const reply = data.choices?.[0]?.message?.content || "I'm sorry, I couldn't generate a response.";
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
 
         return new Response(JSON.stringify({ reply }), {
             status: 200,
