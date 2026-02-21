@@ -129,13 +129,13 @@ export default async function handler(req) {
     - Use the provided data to answer. If you don't know something, suggest emailing Indra.
     - Keep responses concise (2-4 sentences).`;
 
-        // Format history for Gemini (roles: user, model)
         const geminiHistory = (history || []).map(msg => ({
             role: msg.role === 'assistant' ? 'model' : 'user',
             parts: [{ text: msg.content }]
         }));
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        // Try v1 instead of v1beta and ensure model name is correct
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export default async function handler(req) {
                     }
                 ],
                 generationConfig: {
-                    maxOutputTokens: 500,
+                    maxOutputTokens: 800,
                     temperature: 0.7,
                 }
             }),
