@@ -519,14 +519,18 @@ async function getBotResponse(userMessage) {
       })
     });
 
-    if (!response.ok) throw new Error('API error');
-
     const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'API error');
+    }
+
     const reply = data.reply;
     chatState.history.push({ role: 'assistant', content: reply });
     return reply;
   } catch (err) {
-    return "I'm having a little trouble right now. You can reach Indra directly at **indrakumar.m2005@gmail.com** or **+91 9095334806**!";
+    console.error('Chatbot error:', err);
+    return `⚠️ **AI Error:** ${err.message}\n\nIndra can be reached at **indrakumar.m2005@gmail.com** or **+91 9095334806**!`;
   }
 }
 
