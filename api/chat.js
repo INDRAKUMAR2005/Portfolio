@@ -130,15 +130,16 @@ export default async function handler(req) {
     - Keep responses concise (2-4 sentences).`;
 
         // Format history for Gemini (roles: user, model)
+        // Format history for Gemini (roles: user, model)
         const geminiHistory = (history || []).map(msg => ({
             role: msg.role === 'assistant' ? 'model' : 'user',
             parts: [{ text: msg.content }]
         }));
 
-        // Combine system prompt and user message for maximum compatibility
-        const firstMessage = `[SYSTEM INSTRUCTION: ${systemPrompt}]\n\nUser Message: ${message}`;
+        // Put instructions directly in the first part for maximum stability on v1
+        const mainInstruction = `SYSTEM INSTRUCTION: ${systemPrompt}\n\nREPLY TO: ${message}`;
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -148,7 +149,7 @@ export default async function handler(req) {
                     ...geminiHistory,
                     {
                         role: 'user',
-                        parts: [{ text: geminiHistory.length === 0 ? firstMessage : message }]
+                        parts: [{ text: geminiHistory.length === 0 ? mainInstruction : message }]
                     }
                 ],
                 generationConfig: {
