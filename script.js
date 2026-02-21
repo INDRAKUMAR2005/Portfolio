@@ -459,7 +459,7 @@ const stepPrompts = {
   email: "Great to meet you, {name}! 😊\n\nWhat's your **email address** so Indra can reach you?",
   phone: "Perfect! Could you share your **phone number** (optional — you can skip by typing 'skip')?",
   purpose: "Almost done! What's the **purpose of your visit**? (e.g., job opportunity, collaboration, project inquiry, just saying hi)",
-  done: "🎉 Thank you, {name}! Your details have been noted. Indra Kumar will reach out to you at **{email}** soon!\n\nFeel free to ask me anything about his skills, projects, or experience!"
+  done: "🎉 Thank you, {name}! Your details have been noted. Indra Kumar will reach out to you at **{email}** soon!"
 };
 
 async function getBotResponse(userMessage) {
@@ -505,33 +505,7 @@ async function getBotResponse(userMessage) {
       .replace('{email}', chatState.userData.email);
   }
 
-  // After data collection, use OpenAI for free-form Q&A
-  try {
-    chatState.history.push({ role: 'user', content: userMessage });
-
-    // Call Vercel Serverless Function (api/chat.js)
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: userMessage,
-        history: chatState.history.slice(0, -1) // Exclude current message since it's sent in 'message'
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || 'API error');
-    }
-
-    const reply = data.reply;
-    chatState.history.push({ role: 'assistant', content: reply });
-    return reply;
-  } catch (err) {
-    console.error('Chatbot error:', err);
-    return `⚠️ **AI Debug Error:** ${err.message}\n\nIndra can be reached at **indrakumar.m2005@gmail.com** or **+91 9095334806**.`;
-  }
+  return "Thank you for visiting!";
 }
 
 async function handleChatSend() {
@@ -550,8 +524,16 @@ async function handleChatSend() {
   const reply = await getBotResponse(message);
   removeTypingIndicator();
   addMessage(reply, false);
-  chatbotSend.disabled = false;
-  chatbotInput.focus();
+
+  // If chat is done, keep input disabled
+  if (chatState.step === 'done') {
+    chatbotInput.placeholder = "Conversation finished";
+    chatbotInput.disabled = true;
+    chatbotSend.disabled = true;
+  } else {
+    chatbotSend.disabled = false;
+    chatbotInput.focus();
+  }
 }
 
 chatbotSend.addEventListener('click', handleChatSend);
