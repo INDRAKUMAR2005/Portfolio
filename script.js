@@ -530,7 +530,7 @@ async function getBotResponse(userMessage) {
     return reply;
   } catch (err) {
     console.error('Chatbot error:', err);
-    return `⚠️ **AI Error:** ${err.message}\n\nIndra can be reached at **indrakumar.m2005@gmail.com** or **+91 9095334806**!`;
+    return `I'm having a little trouble answering that right now, but I've noted your interest! You can reach Indra directly at **indrakumar.m2005@gmail.com** or **+91 9095334806**.`;
   }
 }
 
