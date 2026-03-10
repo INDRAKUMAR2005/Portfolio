@@ -111,6 +111,12 @@ export const portfolioData = {
             link: "https://task2-fynd-ai-assessement.vercel.app"
         }
     ],
+    certifications: [
+        "Google AI",
+        "Introduction To Industry 4.0 And Industrial Internet Of Things",
+        "Cloud Computing",
+        "Introduction to Internet of Things"
+    ],
     education: [
         {
             degree: "Bachelor of Engineering (B.E.)",
